@@ -26,6 +26,8 @@ const Container = styled.div`
 export function CartControl() {
   const { value } = useLocalStorage("cart-item");
 
+  console.log(value);
+
   return (
     <Container>
       <CartIcon />
