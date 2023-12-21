@@ -4,11 +4,7 @@ import { useState } from "react";
 import { useFilter } from "@/hooks/useFilter";
 import { PriorityTypes } from "../types/priority-types";
 
-interface FilterContainerProps {
-  isOpen: boolean;
-}
-
-const FilterContainer = styled.div<FilterContainerProps>`
+const FilterContainer = styled.div`
   display: flex;
   align-items: center;
   position: relative;
@@ -27,7 +23,6 @@ const FilterContainer = styled.div<FilterContainerProps>`
     background: transparent;
   }
   svg {
-    transform: ${(props) => (props.isOpen ? "rotate(180deg)" : "initial")};
     transition: ease all 0.4s;
     margin-left: 16px;
   }
@@ -68,10 +63,10 @@ export function FilterByPriority() {
     setIsOpen(false);
   };
   return (
-    <FilterContainer isOpen={isOpen}>
+    <FilterContainer>
       <button onClick={handleOpen}>
         Organizar por:
-        <ChevronDown />
+        <ChevronDown isOpen={isOpen} />
       </button>
       {isOpen && (
         <PriorityFilter>
