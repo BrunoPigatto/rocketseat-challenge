@@ -1,4 +1,4 @@
-Projeto está em fase de desenvolvimento seguindo este desafio https://github.com/Rocketseat/frontend-challenge da Rocketseat.
+Projeto está em fase de desenvolvimento seguindo este desafio <a href="https://github.com/Rocketseat/frontend-challenge">DESAFIO</a> da Rocketseat.
 
 ## Sobre o projeto
 
