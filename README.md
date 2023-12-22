@@ -5,7 +5,7 @@ Projeto está em fase de desenvolvimento seguindo este desafio https://github.co
 - Criado com Next.JS (framework do React.JS) e Typescript.
 - Styled components, react hooks, componentização.
 - Consumo de API GraphQL com Axios e React query.
-- Layout do projeto seguido a risca: [https://www.figma.com/file/rET9F2CeUEJdiVN7JRu993/E-commerce---capputeeno?type=design&node-id=680-6449&mode=design&t=jS2Ks0QYU4XifcJ3-0]
+- Layout do projeto seguido a risca: <a href="https://www.figma.com/file/rET9F2CeUEJdiVN7JRu993/E-commerce---capputeeno?type=design&node-id=680-6449&mode=design&t=jS2Ks0QYU4XifcJ3-0">  TESTE</a>
 
 
 ## Como rodar o projeto
