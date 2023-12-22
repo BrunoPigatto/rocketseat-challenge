@@ -10,13 +10,14 @@ const sairaStencil = Saira_Stencil_One({
   subsets: ["latin"],
 });
 
-interface HeaderProps {}
-
 const TagHeader = styled.header`
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 20px 160px;
+  padding: 20px 0;
+  max-width: 1120px;
+  width: 100%;
+  margin: 0 auto;
 
   div {
     display: flex;
@@ -33,7 +34,7 @@ const Logo = styled.a`
   line-heigh: 150%;
 `;
 
-export function Header(props: HeaderProps) {
+export function Header() {
   return (
     <TagHeader>
       <Logo className={sairaStencil.className}>Capputeeno</Logo>
