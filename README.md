@@ -5,7 +5,7 @@ Projeto está em fase de desenvolvimento seguindo este <a href="https://github.c
 - Criado com Next.JS (framework do React.JS) e Typescript.
 - Styled components, react hooks, componentização.
 - Consumo de API GraphQL com Axios e React query.
-- Layout do projeto seguido a risca: <a href="https://www.figma.com/file/rET9F2CeUEJdiVN7JRu993/E-commerce---capputeeno?type=design&node-id=680-6449&mode=design&t=jS2Ks0QYU4XifcJ3-0">LAYOUT</a>
+- Layout do projeto seguindo o layout no Figma: <a href="https://www.figma.com/file/rET9F2CeUEJdiVN7JRu993/E-commerce---capputeeno?type=design&node-id=680-6449&mode=design&t=jS2Ks0QYU4XifcJ3-0">LAYOUT</a>
 
 
 ## Como rodar o projeto
