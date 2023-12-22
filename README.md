@@ -1,10 +1,11 @@
-Projeto está sendo criado a partir deste desafio https://github.com/Rocketseat/frontend-challenge da Rocketseat.
+Projeto está em fase de desenvolvimento seguindo este desafio https://github.com/Rocketseat/frontend-challenge da Rocketseat.
 
 ## Sobre o projeto
 
 - Criado com Next.JS (framework do React.JS) e Typescript.
-- Styled components, react hooks.
+- Styled components, react hooks, componentização.
 - Consumo de API GraphQL com Axios e React query.
+- Layout do projeto seguido a risca: [https://www.figma.com/file/rET9F2CeUEJdiVN7JRu993/E-commerce---capputeeno?type=design&node-id=680-6449&mode=design&t=jS2Ks0QYU4XifcJ3-0]
 
 
 ## Como rodar o projeto
