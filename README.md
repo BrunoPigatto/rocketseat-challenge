@@ -1,14 +1,64 @@
-Projeto está em fase de desenvolvimento seguindo este <a href="https://github.com/Rocketseat/frontend-challenge">DESAFIO</a> da Rocketseat.
+# Capputeeno
 
-## Sobre o projeto
+Bem vindo! Estou desenvolvendo a solução para este desafio Front-end da [Rocketseat´s](https://github.com/Rocketseat/frontend-challenge).
 
-- Criado com Next.JS (framework do React.JS) e Typescript.
-- Styled components, react hooks, componentização.
-- Consumo de API GraphQL com Axios e React query.
-- Layout do projeto seguindo o layout no Figma: <a href="https://www.figma.com/file/rET9F2CeUEJdiVN7JRu993/E-commerce---capputeeno?type=design&node-id=680-6449&mode=design&t=jS2Ks0QYU4XifcJ3-0">LAYOUT</a>
+# 🧠 Sobre
 
+O projeto está em desenvolvimento, então poderá encontrar funcionalidades faltantes que serão implementadas logo mais.
 
-## Como rodar o projeto
+O desafio é implementar um e-commerce de venda de canecas e camisetas que deverá contar com as seguintes funcionalidades:
 
-- Execute o comando `npm install` para instalar todas as dependências e depois execute o comando `npm run dev` para iniciar o projeto.
-- Abra outro terminal, entre na pasta `/api`, dentro da pasta execute o comando `npm install` para instalar todas as dependências da API e depois execute o comando `npm start` para iniciar a API, ela estará rodando em `http://localhost:3333`
+- [x] Catálogo de produtos com paginação
+- [x] Filtrar produtos por categoria
+- [x] Pesquise por nome do produto
+- [] Adicionar e remover produtos do carrinho
+- [] Página de check-out
+
+## 📋 Requerimentos
+
+- Siga [this prototype](https://www.figma.com/file/rET9F2CeUEJdiVN7JRu993/E-commerce---capputeeno?node-id=680%3A6449)
+- Use Next.js e Typescript
+- Crie componentes com styled-components
+- Consumir a **GraphQL API** fornecida
+
+## 🖥️ Instalação
+
+### Front-end
+
+1. Clonar este repositório
+
+```bash
+git clone https://github.com/BrunoPigatto/rocketseat-challenge.git
+```
+
+2. Instalar dependências
+
+```bash
+npm install
+```
+
+3. Executar front-end
+
+```bash
+npm run dev
+```
+
+### Executando a API
+
+1. Vá para a pasta API
+
+```bash
+cd api
+```
+
+3. Instalar dependências
+
+```bash
+npm install
+```
+
+3. Executar API
+
+```bash
+npm start
+```
