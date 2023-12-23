@@ -11,7 +11,7 @@ const PrimaryInput = styled.input`
   border-radius: 8px;
   background-color: var(--bg-secondary);
   font-family: inherit;
-  font-weigth: 400;
+  font-weight: 400;
   font-size: 14px;
   color: var(--text-dark);
 `;
@@ -28,10 +28,18 @@ const InputContainer = styled.div`
   }
 `;
 
+interface InputProps extends InputHTMLAttributes<HTMLInputElement> {
+  value: string;
+  handleChange: (value: string) => void;
+}
+
 export function PrimaryInputSearchIcon(props: InputProps) {
   return (
     <InputContainer>
-      <PrimaryInput {...props} />
+      <PrimaryInput
+        onChange={(event) => props.handleChange(event.target.value)}
+        {...props}
+      />
     </InputContainer>
   );
 }

@@ -16,7 +16,7 @@ export function ProductsList() {
   const { data } = useProducts();
   return (
     <ListContainer>
-      {data?.allProducts?.map((product) => (
+      {data?.map((product) => (
         <ProductCard
           key={product?.id}
           image={product?.image_url}
