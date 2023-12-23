@@ -4,7 +4,7 @@ Bem vindo! Estou desenvolvendo a solução para este desafio Front-end da [Rocke
 
 # 🧠 Sobre
 
-O projeto está em desenvolvimento, então poderá encontrar funcionalidades faltantes que serão implementadas logo mais.
+O projeto está em desenvolvimento, então poderá encontrar funcionalidades faltantes que serão implementadas em breve.
 
 O desafio é implementar um e-commerce de venda de canecas e camisetas que deverá contar com as seguintes funcionalidades:
 
