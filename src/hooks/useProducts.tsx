@@ -3,7 +3,7 @@ import axios from "axios";
 import { useQuery } from "react-query";
 import { useFilter } from "./useFilter";
 import { FilterType } from "@/app/types/filter-types";
-import { getCategoryByType, getFieldByPriority } from "@/utils/API-filters";
+import { getCategoryByType, getFieldByPriority } from "@/utils/api-filters";
 import { PriorityTypes } from "@/app/types/priority-types";
 import { useDeferredValue } from "react";
 
@@ -21,8 +21,6 @@ const fetcher = async (query: string): Promise<ProductsFetchResponse> => {
 export function useProducts() {
   const { type, priority, search } = useFilter();
   const searchDeferred = useDeferredValue(search);
-  console.log({ search });
-  console.log({ searchDeferred });
   const query = filterQuery(type, priority);
   const { data } = useQuery({
     queryFn: () => fetcher(query),

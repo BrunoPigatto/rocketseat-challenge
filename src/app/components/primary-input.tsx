@@ -1,31 +1,36 @@
 import { InputHTMLAttributes } from "react";
 import styled from "styled-components";
+import { SearchIcon } from "./icons/search-icon";
 
-interface InputProps extends InputHTMLAttributes<HTMLInputElement> {}
+const InputContainer = styled.div`
+  position: relative;
+  max-width: 352px;
+  width: 100%;
+  background-color: var(--bg-secondary);
+  border-radius: 8px;
+
+  @media (max-width: 768px) {
+    max-width: 100%;
+  }
+
+  svg {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+`;
 
 const PrimaryInput = styled.input`
-  width: 352px;
+  width: 90%;
   padding: 10px 16px;
   border: none;
   outline: none;
-  border-radius: 8px;
-  background-color: var(--bg-secondary);
   font-family: inherit;
   font-weight: 400;
   font-size: 14px;
   color: var(--text-dark);
-`;
-
-const InputContainer = styled.div`
-  position: relative;
-  width: 352px;
-
-  svg {
-    position: absolute;
-    right: 20px;
-    top: 50%;
-    transform: translateY(-50%);
-  }
+  background-color: transparent;
 `;
 
 interface InputProps extends InputHTMLAttributes<HTMLInputElement> {
@@ -40,6 +45,7 @@ export function PrimaryInputSearchIcon(props: InputProps) {
         onChange={(event) => props.handleChange(event.target.value)}
         {...props}
       />
+      <SearchIcon />
     </InputContainer>
   );
 }

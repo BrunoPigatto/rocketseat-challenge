@@ -9,7 +9,7 @@ const FilterContainer = styled.div`
   align-items: center;
   position: relative;
 
-  button {
+  > button {
     font-family: inherit;
     font-weight: 400;
     font-size: 14px;
@@ -21,8 +21,13 @@ const FilterContainer = styled.div`
     border: none;
     cursor: pointer;
     background: transparent;
+
+    @media (max-width: 768px) {
+      font-size: 18px;
+    }
   }
-  svg {
+
+  > svg {
     transition: ease all 0.4s;
     margin-left: 16px;
   }
@@ -38,6 +43,7 @@ const PriorityFilter = styled.ul`
   padding: 12px 6px;
   list-style: none;
   top: 100%;
+  right: 0px;
 
   li {
     color: var(--text-dark);
@@ -46,6 +52,7 @@ const PriorityFilter = styled.ul`
     line-height: 22px;
     cursor: pointer;
   }
+
   li + li {
     margin-top: 4px;
   }
@@ -63,6 +70,7 @@ export function FilterByPriority() {
     setPriority(value);
     setIsOpen(false);
   };
+
   return (
     <FilterContainer>
       <button onClick={handleOpen}>

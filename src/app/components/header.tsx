@@ -15,16 +15,26 @@ const TagHeader = styled.header`
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 20px 0;
+  padding: 20px 30px;
   max-width: 1120px;
   width: 100%;
   margin: 0 auto;
 
-  div {
+  @media (max-width: 768px) {
+    max-width: 100%;
+    padding: 20px 30px;
+    flex-direction: column;
+  }
+
+  > div {
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 24px;
+    width: 50%;
+
+    @media (max-width: 768px) {
+      width: 100%;
+    }
   }
 `;
 
@@ -32,7 +42,11 @@ const Logo = styled.a`
   color: var(--logo-color);
   font-weight: 400;
   font-size: 40px;
-  line-height: 150%;
+  line-height: 100%;
+
+  @media (max-width: 768px) {
+    margin-bottom: 30px;
+  }
 `;
 
 export function Header() {
