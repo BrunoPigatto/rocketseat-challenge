@@ -35,14 +35,14 @@ const PrimaryInput = styled.input`
 
 interface InputProps extends InputHTMLAttributes<HTMLInputElement> {
   value: string;
-  handleChange: (value: string) => void;
+  handleSearchProduct: (value: string) => void;
 }
 
-export function PrimaryInputSearchIcon(props: InputProps) {
+export function PrimaryInputSearch(props: InputProps) {
   return (
     <InputContainer>
       <PrimaryInput
-        onChange={(event) => props.handleChange(event.target.value)}
+        onChange={(event) => props.handleSearchProduct(event.target.value)}
         {...props}
       />
       <SearchIcon />

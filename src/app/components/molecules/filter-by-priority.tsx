@@ -1,8 +1,8 @@
 import styled from "styled-components";
-import { ChevronDown } from "./icons/chevron-down";
+import { ChevronDown } from "../atoms/icons/chevron-down";
 import { useState } from "react";
 import { useFilter } from "@/hooks/useFilter";
-import { PriorityTypes } from "../types/priority-types";
+import { PriorityTypes } from "../../types/priority-types";
 
 const FilterContainer = styled.div`
   display: flex;

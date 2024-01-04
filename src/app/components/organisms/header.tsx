@@ -2,20 +2,24 @@
 
 import styled from "styled-components";
 import { Saira_Stencil_One } from "next/font/google";
-import { PrimaryInputSearchIcon } from "./primary-input";
-import { CartControl } from "./cart-control";
+import { PrimaryInputSearch } from "../atoms/primary-input";
+import { CartControl } from "../molecules/cart-control";
 import { useFilter } from "@/hooks/useFilter";
+import { useRouter } from "next/navigation";
 
 const sairaStencil = Saira_Stencil_One({
   weight: ["400"],
   subsets: ["latin"],
 });
+const HeaderContainer = styled.header`
+  width: 100%;
+  padding: 20px 30px;
+`;
 
-const TagHeader = styled.header`
+const TagHeader = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 20px 30px;
   max-width: 1120px;
   width: 100%;
   margin: 0 auto;
@@ -43,6 +47,7 @@ const Logo = styled.a`
   font-weight: 400;
   font-size: 40px;
   line-height: 100%;
+  cursor: pointer;
 
   @media (max-width: 768px) {
     margin-bottom: 30px;
@@ -50,18 +55,28 @@ const Logo = styled.a`
 `;
 
 export function Header() {
+  const router = useRouter();
   const { search, setSearch } = useFilter();
+
+  const handleNavigate = () => {
+    router.push("/");
+  };
+
   return (
-    <TagHeader>
-      <Logo className={sairaStencil.className}>Capputeeno</Logo>
-      <div>
-        <PrimaryInputSearchIcon
-          value={search}
-          handleChange={setSearch}
-          placeholder="Procurando por algo específico?"
-        />
-        <CartControl />
-      </div>
-    </TagHeader>
+    <HeaderContainer>
+      <TagHeader>
+        <Logo onClick={handleNavigate} className={sairaStencil.className}>
+          Capputeeno
+        </Logo>
+        <div>
+          <PrimaryInputSearch
+            value={search}
+            handleSearchProduct={setSearch}
+            placeholder="Procurando por algo específico?"
+          />
+          <CartControl />
+        </div>
+      </TagHeader>
+    </HeaderContainer>
   );
 }

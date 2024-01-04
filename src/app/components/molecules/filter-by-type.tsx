@@ -1,7 +1,7 @@
 import { useFilter } from "@/hooks/useFilter";
 import styled from "styled-components";
-import { FilterType } from "../types/filter-types";
-import { useState } from "react";
+import { FilterType } from "../../types/filter-types";
+import { useEffect, useState } from "react";
 
 interface SelectedProps {
   selected: boolean;
@@ -67,8 +67,21 @@ const FilterButton = styled.button<SelectedProps>`
 
 export function FilterByType() {
   const [isOpen, setIsOpen] = useState<boolean>(false);
+  const [windowSize, setWindowSize] = useState<number>(window.innerWidth);
   const { type, setType } = useFilter();
-  const max768px = window.innerWidth < 768;
+  const max768px = windowSize < 768;
+
+  useEffect(() => {
+    const handleResize = () => {
+      setWindowSize(window.innerWidth);
+    };
+
+    window.addEventListener("resize", handleResize);
+
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, [windowSize]);
 
   const handleChangeType = (value: FilterType) => {
     setType(value);

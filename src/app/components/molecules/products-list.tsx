@@ -1,8 +1,9 @@
 "use client";
 
-import { useProducts } from "@/hooks/useProducts";
+import useProducts from "@/hooks/useProducts";
 import { ProductCard } from "./product-card";
 import styled from "styled-components";
+import { Product } from "@/app/types/products";
 
 const ListContainer = styled.div`
   display: grid;
@@ -17,7 +18,7 @@ export function ProductsList() {
   const { data } = useProducts();
   return (
     <ListContainer>
-      {data?.map((product) => (
+      {data?.map((product: Product) => (
         <ProductCard
           key={product?.id}
           image={product?.image_url}
