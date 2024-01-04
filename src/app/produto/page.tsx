@@ -1,9 +1,9 @@
+/* eslint-disable @next/next/no-img-element */
 "use client";
 
 import styled from "styled-components";
 import { BackButton } from "../components/atoms/back-button";
 import useProduct from "@/hooks/useProduct";
-import Image from "next/image";
 
 const Container = styled.div`
   padding: 34px 30px;
@@ -30,7 +30,7 @@ export default function ProductPage({
       <ProductContainer>
         <BackButton navigate="/" />
         <section>
-          <Image src={data?.image_url as string} alt="product image" />
+          <img src={data?.image_url} alt="product image" />
           <div>
             <span>{data?.category}</span>
             <h2>{data?.name}</h2>
