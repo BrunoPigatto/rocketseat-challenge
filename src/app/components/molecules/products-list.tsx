@@ -21,9 +21,10 @@ export function ProductsList() {
       {data?.map((product: Product) => (
         <ProductCard
           key={product?.id}
-          image={product?.image_url}
+          image={product?.image_url as string}
           title={product?.name}
           price={product?.price_in_cents}
+          id={product?.id as string}
         />
       ))}
     </ListContainer>

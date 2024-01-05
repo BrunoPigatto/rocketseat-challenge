@@ -1,11 +1,13 @@
 /* eslint-disable @next/next/no-img-element */
 import { formatPrice } from "@/utils/help-functions";
+import { useRouter } from "next/navigation";
 import styled from "styled-components";
 
 interface ProductCardProps {
   image: string;
   title: string;
   price: number;
+  id: string;
 }
 
 const Card = styled.div`
@@ -17,6 +19,7 @@ const Card = styled.div`
   backdrop-filter: blur(10px);
   border-radius: 0px 0px 4px 4px;
   width: 256px;
+  cursor: pointer;
 
   img {
     width: 100%;
@@ -48,10 +51,16 @@ const Card = styled.div`
 `;
 
 export function ProductCard(props: ProductCardProps) {
+  const router = useRouter();
+
   const price = formatPrice(props.price);
 
+  const handleNavigate = () => {
+    router.push("/produto?id=" + props.id);
+  };
+
   return (
-    <Card>
+    <Card onClick={handleNavigate}>
       <img src={props.image} alt="Product Image" />
       <h3>{props?.title}</h3>
       <div></div>

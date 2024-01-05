@@ -10,6 +10,7 @@
   --shapes-dark: #09090a;
   --delete-color: #de3838;
   --orange-low: #ffa585;
+  --blue-blend: #115d8c;
 }
 
 * {
@@ -22,4 +23,5 @@ html,
 body {
   max-width: 100vw;
   overflow-x: hidden;
+  background-color: var(--bg-primary);
 }

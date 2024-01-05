@@ -14,6 +14,7 @@ const sairaStencil = Saira_Stencil_One({
 const HeaderContainer = styled.header`
   width: 100%;
   padding: 20px 30px;
+  background-color: #fff;
 `;
 
 const TagHeader = styled.div`
