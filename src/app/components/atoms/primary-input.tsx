@@ -39,11 +39,12 @@ interface InputProps extends InputHTMLAttributes<HTMLInputElement> {
 }
 
 export function PrimaryInputSearch(props: InputProps) {
+  const { handleSearchProduct, ...restProps } = props;
   return (
     <InputContainer>
       <PrimaryInput
-        onChange={(event) => props.handleSearchProduct(event.target.value)}
-        {...props}
+        onChange={(event) => handleSearchProduct(event.target.value)}
+        {...restProps}
       />
       <SearchIcon />
     </InputContainer>
