@@ -44,22 +44,24 @@ export default function ProductPage({
   const { data } = useProduct(searchParams?.id);
 
   return (
-    <Container>
-      <ProductContainer>
-        <BackButton navigate="home" />
-        <section>
-          <img src={data?.image_url} alt="product image" />
-          <div>
-            <SingleProduct
-              category={data?.category}
-              name={data?.name}
-              price_in_cents={data?.price_in_cents}
-              description={data?.description}
-            />
-            <BuyButton />
-          </div>
-        </section>
-      </ProductContainer>
-    </Container>
+    <section>
+      <Container>
+        <ProductContainer>
+          <BackButton navigate="home" />
+          <section>
+            <img src={data?.image_url} alt="product image" />
+            <div>
+              <SingleProduct
+                category={data?.category}
+                name={data?.name}
+                price_in_cents={data?.price_in_cents}
+                description={data?.description}
+              />
+              <BuyButton />
+            </div>
+          </section>
+        </ProductContainer>
+      </Container>
+    </section>
   );
 }

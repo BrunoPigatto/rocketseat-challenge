@@ -61,7 +61,7 @@ export function ProductCard(props: ProductCardProps) {
 
   return (
     <Card onClick={handleNavigate}>
-      <img src={props.image} alt="Product Image" />
+      <img src={props?.image} alt="Product Image" />
       <h3>{props?.title}</h3>
       <div></div>
       <p>{price}</p>
