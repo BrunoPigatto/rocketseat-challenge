@@ -17,7 +17,7 @@ O desafio é implementar um e-commerce de venda de canecas e camisetas que dever
 ## 📋 Requerimentos
 
 - Siga [este prototipo](https://www.figma.com/file/rET9F2CeUEJdiVN7JRu993/E-commerce---capputeeno?node-id=680%3A6449)
-- Use Next.js (frameork do React.JS) e Typescript
+- Use Next.js (framework do React.JS) e Typescript
 - Crie componentes com styled-components
 - Consumir a **GraphQL API** fornecida
 
