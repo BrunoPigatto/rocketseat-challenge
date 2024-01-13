@@ -67,14 +67,18 @@ const FilterButton = styled.button<SelectedProps>`
 
 export function FilterByType() {
   const [isOpen, setIsOpen] = useState<boolean>(false);
-  const [windowSize, setWindowSize] = useState<number>(window.innerWidth);
   const { type, setType } = useFilter();
+  const [windowSize, setWindowSize] = useState<number>(0);
+
   const max768px = windowSize < 768;
 
   useEffect(() => {
     const handleResize = () => {
       setWindowSize(window.innerWidth);
     };
+    if (window !== undefined) {
+      setWindowSize(window.innerWidth);
+    }
 
     window.addEventListener("resize", handleResize);
 
