@@ -1,8 +1,10 @@
 "use client";
 
+import { Provider } from "react-redux";
 import { Header } from "./components/organisms/header";
 import { FilterContextProvider } from "./context/filter-context";
 import { ApolloClient, ApolloProvider, InMemoryCache } from "@apollo/client";
+import store from "@/hooks/redux/store";
 
 const client = new ApolloClient({
   uri: process.env.NEXT_PUBLIC_API_URL,
@@ -15,11 +17,13 @@ export default function LayoutClient({
   children: React.ReactNode;
 }) {
   return (
-    <ApolloProvider client={client}>
-      <FilterContextProvider>
-        <Header />
-        {children}
-      </FilterContextProvider>
-    </ApolloProvider>
+    <Provider store={store}>
+      <ApolloProvider client={client}>
+        <FilterContextProvider>
+          <Header />
+          {children}
+        </FilterContextProvider>
+      </ApolloProvider>
+    </Provider>
   );
 }

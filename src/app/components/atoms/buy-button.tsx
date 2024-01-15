@@ -1,6 +1,10 @@
 import styled from "styled-components";
 import { ShoppingBagIcon } from "./icons/shopping-bag-icon";
 
+interface BuyButtonProps {
+  handleAddToCart: () => void;
+}
+
 const Button = styled.button`
   background-color: var(--blue-blend);
   mix-blend-mode: multiply;
@@ -24,9 +28,9 @@ const Button = styled.button`
   }
 `;
 
-export default function BuyButton() {
+export default function BuyButton({ handleAddToCart }: BuyButtonProps) {
   return (
-    <Button>
+    <Button onClick={handleAddToCart}>
       <ShoppingBagIcon /> ADICIONAR AO CARRINHO
     </Button>
   );

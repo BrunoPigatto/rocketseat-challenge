@@ -1,8 +1,9 @@
-import { useLocalStorage } from "@/hooks/useLocalStorage";
 import { CartIcon } from "../atoms/icons/cart-icon";
 import styled from "styled-components";
+import { CartItem } from "@/hooks/redux/reducer";
+import { useSelector } from "react-redux";
 
-const CartCount = styled.span`
+const CartCount = styled.p`
   display: flex;
   align-items: center;
   justify-content: center;
@@ -24,12 +25,16 @@ const Container = styled.div`
 `;
 
 export function CartControl() {
-  const { value } = useLocalStorage("cart-item");
+  const cartItems = useSelector(
+    (state: { cart: { items: CartItem[] } }) => state.cart.items
+  );
 
   return (
     <Container>
       <CartIcon />
-      <CartCount>{value.length}</CartCount>
+      <CartCount onClick={() => console.log({ cartItems })}>
+        {cartItems?.length}
+      </CartCount>
     </Container>
   );
 }
