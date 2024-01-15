@@ -1,6 +1,6 @@
 import { CartIcon } from "../atoms/icons/cart-icon";
 import styled from "styled-components";
-import { CartItem } from "@/hooks/redux/reducer";
+import { CartItem, CartState } from "@/hooks/redux/cartReducer";
 import { useSelector } from "react-redux";
 
 const CartCount = styled.p`
@@ -25,9 +25,7 @@ const Container = styled.div`
 `;
 
 export function CartControl() {
-  const cartItems = useSelector(
-    (state: { cart: { items: CartItem[] } }) => state.cart.items
-  );
+  const cartItems = useSelector((state: CartState) => state.cartItems.items);
 
   return (
     <Container>

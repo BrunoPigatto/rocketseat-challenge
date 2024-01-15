@@ -7,7 +7,7 @@ import useProduct from "@/hooks/useProduct";
 import SingleProduct from "../components/molecules/single-product";
 import BuyButton from "../components/atoms/buy-button";
 import { useDispatch, useSelector } from "react-redux";
-import { CartItem, addToCart } from "@/hooks/redux/reducer";
+import { CartItem, CartState, addToCart } from "@/hooks/redux/cartReducer";
 
 const Container = styled.div`
   padding: 34px 30px;
@@ -46,9 +46,8 @@ export default function ProductPage({
   const { data } = useProduct(searchParams?.id);
   const dispatch = useDispatch();
 
-  const existingCartItem = useSelector(
-    (state: { cart: { items: CartItem[] } }) =>
-      state.cart.items.find((item) => item.id === searchParams?.id)
+  const existingCartItem = useSelector((state: CartState) =>
+    state.cartItems.items.find((item) => item.id === searchParams?.id)
   );
 
   const handleAddToCart = () => {

@@ -6,27 +6,32 @@ export interface CartItem {
   quantity: number;
 }
 
-interface CartState {
-  items: CartItem[];
+export interface CartState {
+  cartItems: {
+    items: CartItem[];
+  };
 }
 
 const initialState: CartState = {
-  items: [],
+  cartItems: {
+    items: [],
+  },
 };
 
-const cartSlice = createSlice({
+export const cartSlice = createSlice({
   name: "cart",
   initialState,
   reducers: {
     addToCart: (state, action: PayloadAction<CartItem>) => {
-      const existingProductIndex = state.items.findIndex(
+      const existingProductIndex = state.cartItems.items.findIndex(
         (item) => item.id === action.payload.id
       );
 
       if (existingProductIndex !== -1) {
-        state.items[existingProductIndex].quantity += action.payload.quantity;
+        state.cartItems.items[existingProductIndex].quantity +=
+          action.payload.quantity;
       } else {
-        state.items.push(action.payload);
+        state.cartItems.items.push(action.payload);
       }
     },
   },
