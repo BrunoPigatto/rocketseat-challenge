@@ -7,7 +7,8 @@ import useProduct from "@/hooks/useProduct";
 import SingleProduct from "../components/molecules/single-product";
 import BuyButton from "../components/atoms/buy-button";
 import { useDispatch, useSelector } from "react-redux";
-import { CartItem, CartState, addToCart } from "@/hooks/redux/cartReducer";
+import { CartState, addToCart } from "@/hooks/redux/cartReducer";
+import { useState } from "react";
 
 const Container = styled.div`
   padding: 34px 30px;
@@ -45,17 +46,28 @@ export default function ProductPage({
 }) {
   const { data } = useProduct(searchParams?.id);
   const dispatch = useDispatch();
+  const [isLoading, setIsLoading] = useState<boolean>(false);
 
   const existingCartItem = useSelector((state: CartState) =>
     state.cartItems.items.find((item) => item.id === searchParams?.id)
   );
 
   const handleAddToCart = () => {
-    if (existingCartItem) {
-      dispatch(addToCart({ id: searchParams?.id, quantity: 1 }));
-    } else {
-      dispatch(addToCart({ ...data, id: searchParams?.id, quantity: 1 }));
+    // Verifica se o botão está em estado de carregamento
+    if (isLoading) {
+      return;
     }
+
+    setIsLoading(true);
+
+    setTimeout(() => {
+      if (existingCartItem) {
+        dispatch(addToCart({ id: searchParams?.id, quantity: 1 }));
+      } else {
+        dispatch(addToCart({ ...data, id: searchParams?.id, quantity: 1 }));
+      }
+      setIsLoading(false);
+    }, 2000);
   };
 
   return (
@@ -72,7 +84,10 @@ export default function ProductPage({
                 price_in_cents={data?.price_in_cents}
                 description={data?.description}
               />
-              <BuyButton handleAddToCart={handleAddToCart} />
+              <BuyButton
+                handleAddToCart={handleAddToCart}
+                isLoading={isLoading}
+              />
             </div>
           </section>
         </ProductContainer>

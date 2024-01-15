@@ -1,8 +1,10 @@
 import styled from "styled-components";
 import { ShoppingBagIcon } from "./icons/shopping-bag-icon";
+import Spinner from "./spinner";
 
 interface BuyButtonProps {
   handleAddToCart: () => void;
+  isLoading: boolean;
 }
 
 const Button = styled.button`
@@ -28,10 +30,21 @@ const Button = styled.button`
   }
 `;
 
-export default function BuyButton({ handleAddToCart }: BuyButtonProps) {
+export default function BuyButton({
+  handleAddToCart,
+  isLoading,
+}: BuyButtonProps) {
   return (
     <Button onClick={handleAddToCart}>
-      <ShoppingBagIcon /> ADICIONAR AO CARRINHO
+      {isLoading ? (
+        <>
+          <Spinner />
+        </>
+      ) : (
+        <>
+          <ShoppingBagIcon /> ADICIONAR AO CARRINHO
+        </>
+      )}
     </Button>
   );
 }
