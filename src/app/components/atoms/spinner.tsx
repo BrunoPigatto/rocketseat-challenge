@@ -6,12 +6,6 @@ const spin = keyframes`
   100% { transform: rotate(360deg); }
 `;
 
-const SpinnerContainer = styled.div`
-  display: flex;
-  align-items: center;
-  justify-content: center;
-`;
-
 const SpinnerCircle = styled.div`
   border: 4px solid rgba(0, 0, 0, 0.1);
   border-top: 4px solid #fff;
@@ -22,11 +16,7 @@ const SpinnerCircle = styled.div`
 `;
 
 const Spinner = () => {
-  return (
-    <SpinnerContainer>
-      <SpinnerCircle />
-    </SpinnerContainer>
-  );
+  return <SpinnerCircle />;
 };
 
 export default Spinner;
