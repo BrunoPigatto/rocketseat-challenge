@@ -1,8 +1,8 @@
 "use client";
 
 import styles from "./page.module.css";
-import { FilterBar } from "./components/molecules/filter-bar";
-import { ProductsList } from "./components/molecules/products-list";
+import { FilterBar } from "./components/molecules/filter/filter-bar";
+import { ProductsList } from "./components/molecules/product/products-list";
 import styled from "styled-components";
 
 const Container = styled.div`

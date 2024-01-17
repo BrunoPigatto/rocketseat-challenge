@@ -9,7 +9,7 @@ import BuyButton from "../components/atoms/buy-button";
 import { useDispatch, useSelector } from "react-redux";
 import { CartState, addToCart } from "@/hooks/redux/cartReducer";
 import { useState } from "react";
-import toast, { Toaster } from "react-hot-toast";
+import toast from "react-hot-toast";
 
 const Container = styled.div`
   padding: 34px 30px;
@@ -63,7 +63,7 @@ export default function ProductPage({
     setTimeout(() => {
       if (existingCartItem) {
         dispatch(addToCart({ id: searchParams?.id, quantity: 1 }));
-        toast.error("Este produto já está ao carrinho.");
+        toast.error("Este produto já está no carrinho.");
       } else {
         dispatch(addToCart({ ...data, id: searchParams?.id, quantity: 1 }));
         toast.success("Produto adicionado ao carrinho.");

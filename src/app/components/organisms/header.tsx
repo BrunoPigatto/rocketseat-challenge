@@ -3,7 +3,7 @@
 import styled from "styled-components";
 import { Saira_Stencil_One } from "next/font/google";
 import { PrimaryInputSearch } from "../atoms/primary-input";
-import { CartControl } from "../molecules/cart-control";
+import { CartControl } from "../molecules/cart/cart-control";
 import { useFilter } from "@/hooks/useFilter";
 import { useRouter } from "next/navigation";
 

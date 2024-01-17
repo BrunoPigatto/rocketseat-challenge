@@ -1,6 +1,6 @@
 import { useFilter } from "@/hooks/useFilter";
 import styled from "styled-components";
-import { FilterType } from "../../types/filter-types";
+import { FilterType } from "../../../types/filter-types";
 import { useEffect, useState } from "react";
 
 interface SelectedProps {

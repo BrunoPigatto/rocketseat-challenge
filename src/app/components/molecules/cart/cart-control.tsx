@@ -1,4 +1,4 @@
-import { CartIcon } from "../atoms/icons/cart-icon";
+import { CartIcon } from "../../atoms/icons/cart-icon";
 import styled from "styled-components";
 import { CartItem, CartState } from "@/hooks/redux/cartReducer";
 import { useSelector } from "react-redux";
