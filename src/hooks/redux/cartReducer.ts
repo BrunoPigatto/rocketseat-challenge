@@ -9,7 +9,6 @@ export interface CartItem {
   image_url: string;
   description?: string;
   category?: string;
-  qantity: number;
 }
 
 export interface CartState {
