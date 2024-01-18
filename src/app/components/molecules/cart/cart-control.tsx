@@ -2,6 +2,7 @@ import { CartIcon } from "../../atoms/icons/cart-icon";
 import styled from "styled-components";
 import { CartItem, CartState } from "@/hooks/redux/cartReducer";
 import { useSelector } from "react-redux";
+import { useRouter } from "next/navigation";
 
 const CartCount = styled.p`
   display: flex;
@@ -22,13 +23,19 @@ const CartCount = styled.p`
 const Container = styled.div`
   position: relative;
   margin-left: 20px;
+  cursor: pointer;
 `;
 
 export function CartControl() {
   const cartItems = useSelector((state: CartState) => state.cartItems.items);
+  const router = useRouter();
+
+  const handleCartNavigate = () => {
+    router.push("carrinho");
+  };
 
   return (
-    <Container>
+    <Container onClick={handleCartNavigate}>
       <CartIcon />
       <CartCount onClick={() => console.log({ cartItems })}>
         {cartItems?.length}

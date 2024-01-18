@@ -3,9 +3,10 @@
 import styled from "styled-components";
 import { BackButton } from "../components/atoms/back-button";
 import { useSelector } from "react-redux";
-import { CartState } from "@/hooks/redux/cartReducer";
+import { CartState, removeFromCart } from "@/hooks/redux/cartReducer";
 import { formatPrice } from "@/utils/help-functions";
 import { CartProductItem } from "../components/molecules/cart/cart-item";
+import { useDispatch } from "react-redux";
 
 const Container = styled.div`
   padding: 34px 30px;
@@ -19,7 +20,7 @@ const CartContainer = styled.div`
   width: 100%;
 `;
 
-const CartListContainer = styled.div`
+const CartListContainer = styled.section`
   margin-top: 24px;
 
   h2 {
@@ -41,6 +42,12 @@ const CartListContainer = styled.div`
   }
 `;
 
+const ContentContainer = styled.div`
+  display: grid;
+  grid-template-columns: 66% 31%;
+  column-gap: 32px;
+`;
+
 const CartList = styled.ul`
   list-style: none;
   display: flex;
@@ -49,13 +56,17 @@ const CartList = styled.ul`
   margin-top: 24px;
 `;
 
+const Sidebar = styled.aside``;
+
 export default function CardPage() {
+  const dispatch = useDispatch();
   const cartItems = useSelector((state: CartState) => state.cartItems.items);
 
   const itemsQuantity = cartItems?.length;
   const sumTotalValue = cartItems?.reduce((total, item) => {
     return total + item.price_in_cents * item.quantity;
   }, 0);
+
   const totalValue = formatPrice(sumTotalValue);
 
   const handleUpdateQuantity = (id: string, quantity: number) => {
@@ -65,29 +76,39 @@ export default function CardPage() {
       }
       return { ...item, quantity: quantity };
     });
+
+    console.log(quantity);
+  };
+
+  const handleDeleteItem = (id: string) => {
+    dispatch(removeFromCart(id));
   };
 
   return (
     <Container>
       <CartContainer>
         <BackButton navigate="/" />
-        <CartListContainer onClick={() => console.log(totalValue)}>
-          <h2>Seu carrinho</h2>
-          <p>
-            Total ( {itemsQuantity} produtos ) <span>{totalValue}</span>
-          </p>
-          <CartList>
-            {cartItems?.map((item) => {
-              return (
-                <CartProductItem
-                  key={item?.id}
-                  product={item}
-                  handleUpdateQuantity={handleUpdateQuantity}
-                />
-              );
-            })}
-          </CartList>
-        </CartListContainer>
+        <ContentContainer>
+          <CartListContainer>
+            <h2>Seu carrinho</h2>
+            <p>
+              Total ( {itemsQuantity} produtos ) <span>{totalValue}</span>
+            </p>
+            <CartList>
+              {cartItems?.map((item) => {
+                return (
+                  <CartProductItem
+                    key={item?.id}
+                    product={item}
+                    handleUpdateQuantity={handleUpdateQuantity}
+                    handleDeleteItem={handleDeleteItem}
+                  />
+                );
+              })}
+            </CartList>
+          </CartListContainer>
+          <Sidebar>aaa</Sidebar>
+        </ContentContainer>
       </CartContainer>
     </Container>
   );
