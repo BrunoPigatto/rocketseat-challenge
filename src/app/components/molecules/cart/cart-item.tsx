@@ -2,10 +2,12 @@
 import { ProductInCart } from "@/app/types/products";
 import { CartItem } from "@/hooks/redux/cartReducer";
 import { formatPrice } from "@/utils/help-functions";
+import { ChangeEvent, useState } from "react";
 import styled from "styled-components";
 
 interface CartItemProps {
   product: ProductInCart;
+  handleUpdateQuantity(id: string, quantity: number): void;
 }
 
 const Item = styled.li`
@@ -55,7 +57,17 @@ const Item = styled.li`
   }
 `;
 
-export function CartProductItem({ product }: CartItemProps) {
+export function CartProductItem({
+  product,
+  handleUpdateQuantity,
+}: CartItemProps) {
+  const [selectValue, setSelectValue] = useState<number>(product?.quantity);
+
+  const handleChange = (e: ChangeEvent<HTMLSelectElement>) => {
+    const newSelectValue = Number(e.target.value);
+    handleUpdateQuantity(product.id as string, newSelectValue);
+    setSelectValue(newSelectValue);
+  };
   return (
     <Item>
       <img src={product?.image_url} alt="product-image" />
@@ -65,7 +77,13 @@ export function CartProductItem({ product }: CartItemProps) {
           <p>{product?.description}</p>
         </div>
         <div>
-          <p>{product?.quantity}</p>
+          <select onChange={handleChange} value={selectValue}>
+            <option value={1}>1</option>
+            <option value={2}>2</option>
+            <option value={3}>3</option>
+            <option value={4}>4</option>
+            <option value={5}>5</option>
+          </select>
           <p>{formatPrice(product?.price_in_cents)}</p>
         </div>
       </div>

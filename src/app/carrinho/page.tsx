@@ -51,11 +51,21 @@ const CartList = styled.ul`
 
 export default function CardPage() {
   const cartItems = useSelector((state: CartState) => state.cartItems.items);
+
   const itemsQuantity = cartItems?.length;
   const sumTotalValue = cartItems?.reduce((total, item) => {
     return total + item.price_in_cents * item.quantity;
   }, 0);
   const totalValue = formatPrice(sumTotalValue);
+
+  const handleUpdateQuantity = (id: string, quantity: number) => {
+    const newValue = cartItems?.map((item) => {
+      if (item?.id !== id) {
+        return item;
+      }
+      return { ...item, quantity: quantity };
+    });
+  };
 
   return (
     <Container>
@@ -68,7 +78,13 @@ export default function CardPage() {
           </p>
           <CartList>
             {cartItems?.map((item) => {
-              return <CartProductItem key={item?.id} product={item} />;
+              return (
+                <CartProductItem
+                  key={item?.id}
+                  product={item}
+                  handleUpdateQuantity={handleUpdateQuantity}
+                />
+              );
             })}
           </CartList>
         </CartListContainer>
