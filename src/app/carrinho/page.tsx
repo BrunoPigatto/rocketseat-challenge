@@ -3,7 +3,11 @@
 import styled from "styled-components";
 import { BackButton } from "../components/atoms/back-button";
 import { useSelector } from "react-redux";
-import { CartState, removeFromCart } from "@/hooks/redux/cartReducer";
+import {
+  CartState,
+  removeFromCart,
+  updateFromCart,
+} from "@/hooks/redux/cartReducer";
 import { formatPrice } from "@/utils/help-functions";
 import { CartProductItem } from "../components/molecules/cart/cart-item";
 import { useDispatch } from "react-redux";
@@ -70,14 +74,7 @@ export default function CardPage() {
   const totalValue = formatPrice(sumTotalValue);
 
   const handleUpdateQuantity = (id: string, quantity: number) => {
-    const newValue = cartItems?.map((item) => {
-      if (item?.id !== id) {
-        return item;
-      }
-      return { ...item, quantity: quantity };
-    });
-
-    console.log(quantity);
+    dispatch(updateFromCart({ id, quantity }));
   };
 
   const handleDeleteItem = (id: string) => {

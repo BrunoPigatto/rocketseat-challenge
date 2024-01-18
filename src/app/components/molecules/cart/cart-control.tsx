@@ -27,8 +27,12 @@ const Container = styled.div`
 `;
 
 export function CartControl() {
-  const cartItems = useSelector((state: CartState) => state.cartItems.items);
   const router = useRouter();
+  const cartItems = useSelector((state: CartState) => state.cartItems.items);
+
+  const totalQuantity = cartItems.reduce((accumulator, currentItem) => {
+    return accumulator + currentItem?.quantity;
+  }, 0);
 
   const handleCartNavigate = () => {
     router.push("carrinho");
@@ -38,7 +42,7 @@ export function CartControl() {
     <Container onClick={handleCartNavigate}>
       <CartIcon />
       <CartCount onClick={() => console.log({ cartItems })}>
-        {cartItems?.length}
+        {totalQuantity}
       </CartCount>
     </Container>
   );
