@@ -26,7 +26,7 @@ const Button = styled.button`
 
   &:hover {
     transition: ease all 0.3s;
-    background-color: green;
+    background-color: var(--green);
   }
 `;
 

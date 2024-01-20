@@ -11,6 +11,7 @@ import {
 import { formatPrice } from "@/utils/help-functions";
 import { CartProductItem } from "../components/molecules/cart/cart-item";
 import { useDispatch } from "react-redux";
+import { Sidebar } from "../components/organisms/sidebar";
 
 const Container = styled.div`
   padding: 34px 30px;
@@ -60,8 +61,6 @@ const CartList = styled.ul`
   margin-top: 24px;
 `;
 
-const Sidebar = styled.aside``;
-
 export default function CardPage() {
   const dispatch = useDispatch();
   const cartItems = useSelector((state: CartState) => state.cartItems.items);
@@ -104,7 +103,7 @@ export default function CardPage() {
               })}
             </CartList>
           </CartListContainer>
-          <Sidebar>aaa</Sidebar>
+          <Sidebar totalValue={sumTotalValue} />
         </ContentContainer>
       </CartContainer>
     </Container>
